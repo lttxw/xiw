@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { FormDialog, FormItem, FormLayout, Input } from '@formily/antd';
 import { createSchemaField } from '@formily/react';
-import { Button, Switch } from 'antd';
+import { Button, Switch, Icon, Select, message } from 'antd';
 import ExporForms from './ExportForms';
+import MomentDemo from './momentDemo';
 
 const SchemaField = createSchemaField({
   components: {
@@ -167,6 +168,8 @@ function A(props) {
   );
 }
 
+const { Option } = Select;
+
 function B(props) {
   const { column, handleChe } = props;
   return (
@@ -188,10 +191,40 @@ function B(props) {
 }
 
 export default () => {
+  const [selectV, setSelectV] = useState(undefined);
+
+  const handleChange = (value, Option) => {
+    console.log('value', value);
+    if (Array.isArray(value) && value.length > 3) {
+      message.info('超过3');
+      setSelectV(value.slice(0, 3));
+    }
+  };
+  const handleSearch = (form) => {
+    const { drop, ch } = form.getFieldValue();
+    console.log('11111', drop);
+    console.log('22222', ch);
+  };
   return (
     <>
       <ExporForms columns={initCol} />
       <Demo />
+      <Icon type="down" />
+      <Select
+        value={selectV}
+        style={{ width: 160 }}
+        mode="tags"
+        onChange={handleChange}
+        showCheckbox
+      >
+        <Option value="1">1</Option>
+        <Option value="2">2</Option>
+        <Option value="3">3</Option>
+        <Option value="4">4</Option>
+        <Option value="5">5</Option>
+        <Option value="6">6</Option>
+      </Select>
+      <MomentDemo handleSearch={handleSearch} />
     </>
   );
 };
