@@ -12,7 +12,7 @@ import {
 } from '@formily/antd';
 import { createSchemaField } from '@formily/react';
 import ColumnsMap from './ColumnsMap';
-import Style from './index.less';
+import Style from '../index.less';
 
 const SchemaField = createSchemaField({
   components: {

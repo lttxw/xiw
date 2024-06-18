@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'antd';
-import Style from './index.less';
+import Style from '../index.less';
 
 export default function ItemMap(props) {
   const { form } = props;

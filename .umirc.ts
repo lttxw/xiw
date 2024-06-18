@@ -4,7 +4,7 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [{ path: '/', component: '@/pages/index' }],
+  // routes: { exclude: [/components\//] },
   fastRefresh: {},
 
   extraBabelPlugins: [
@@ -19,4 +19,7 @@ export default defineConfig({
       '@formily/antd',
     ],
   ],
+  // layout: {
+  //   // title: '11',
+  // },
 });

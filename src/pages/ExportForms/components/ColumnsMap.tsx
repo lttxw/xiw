@@ -13,7 +13,7 @@ import {
 import { Button } from 'antd';
 import { useField } from '@formily/react';
 import { createSchemaField } from '@formily/react';
-import Style from './index.less';
+import Style from '../index.less';
 import ItemMap from './ItemMap';
 
 function ColumnsMap(props) {
